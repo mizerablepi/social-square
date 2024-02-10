@@ -1,6 +1,16 @@
 import Link from "next/link";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
+
+function checkErrors() {
+  return cookies().get("errors");
+}
 
 function SignUp() {
+  if (cookies().get("token")) {
+    redirect("/");
+  }
+  const errors = checkErrors();
   return (
     <div className="flex flex-col items-center justify-center h-screen">
       <div>
@@ -52,6 +62,9 @@ function SignUp() {
               className="rounded bg-gray-600 px-2 py-1 mb-3 "
               required
             />
+            {errors && (
+              <div className="text-sm text-red-400">{errors.value}</div>
+            )}
             <div className="flex mt-4 items-center justify-between">
               <button
                 type="submit"
