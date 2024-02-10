@@ -3,7 +3,7 @@ import { ZodError, z } from "zod";
 import { getFormData } from "@/helper/formHelpers";
 import User from "@/models/User";
 import bcryptjs from "bcryptjs";
-import connect from "@/dbConfig";
+import { connect } from "@/dbConfig";
 import { cookies } from "next/headers";
 import jwt from "jsonwebtoken";
 connect();
