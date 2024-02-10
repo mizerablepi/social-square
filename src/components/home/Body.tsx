@@ -1,5 +1,14 @@
+import GrayCard from "../GrayCard";
+
 function Body() {
-  return <div className="flex-1">BODY </div>;
+  return (
+    <main className="flex-1">
+      <nav className="hidden sm:flex ">Navbar for laptops</nav>
+      <div>
+        <GrayCard></GrayCard>
+      </div>
+    </main>
+  );
 }
 
 export default Body;
