@@ -12,7 +12,7 @@ function Login() {
   }
   const errors = checkErrors();
   return (
-    <div className="flex flex-col items-center justify-center h-screen">
+    <div className="flex flex-col items-center justify-center min-h-[calc(100vh-116px)] md:min-h-screen">
       <div>
         <div>
           <h1 className="font-bold text-4xl pb-8 pl-2 sm:pl-0">Log In:</h1>
@@ -47,7 +47,7 @@ function Login() {
                 type="submit"
                 className="font-bold rounded-md bg-blue-600 self-start px-3 py-1 "
               >
-                Sign Up
+                Log In
               </button>
               <Link
                 href="/signup"
