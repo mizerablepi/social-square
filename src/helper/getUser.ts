@@ -10,7 +10,6 @@ export default async function getUser() {
   connect();
   const token = cookies().get("token");
   if (!token) {
-    console.log("token nonexistent");
     redirect("/login");
   }
   try {
