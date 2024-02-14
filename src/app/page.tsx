@@ -9,12 +9,10 @@ export default async function Home() {
   const user = await getUser();
 
   return (
-    <div className="flex gap-6">
+    <div className="flex gap-6 max-w-[90rem] mx-auto">
       <Aside profilePic={user.profilePicture} />
-      <div className="flex-grow-[2] flex flex-col min-h-screen">
-        <MobileHeader profilePic={user.profilePicture} />
+      <div className="flex-[2] flex flex-col min-h-screen">
         <Body />
-        <MobileNavbar />
       </div>
       <Extra />
     </div>
