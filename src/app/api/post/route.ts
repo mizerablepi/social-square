@@ -31,7 +31,7 @@ export async function POST(req: Request) {
     });
   }
 
-  const user = await User.findOne({ username: decodedToken!.username }).exec();
+  const user = await User.findById(decodedToken.id).exec();
 
   let imageUrl = "";
   if (data.get("file") != "undefined") {
@@ -103,6 +103,4 @@ export async function GET(req: Request) {
       .exec();
     return NextResponse.json({ posts, success: true });
   }
-
-  // const decodedToken: any = jwt.decode(token.value);
 }

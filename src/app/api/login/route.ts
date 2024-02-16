@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { ZodError, z } from "zod";
+import { z } from "zod";
 import { getFormData } from "@/helper/formHelpers";
 import User from "@/models/User";
 import bcryptjs from "bcryptjs";
@@ -43,7 +43,7 @@ export async function POST(req: Request) {
       return NextResponse.redirect(new URL("/login", req.url));
     } else if (await bcryptjs.compare(validData!.password, user.password)) {
       const jwtToken = jwt.sign(
-        { username: user.username },
+        { username: user.username, id: user.id },
         process.env.SECRET!
       );
       cookies().set("token", jwtToken);

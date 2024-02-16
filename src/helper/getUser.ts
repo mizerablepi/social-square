@@ -18,7 +18,7 @@ export default async function getUser() {
     redirect("/login");
   }
   const decoded: any = jwt.decode(token.value);
-  const usernameInToken = decoded.username as string;
-  const user = await User.findOne({ username: usernameInToken }).exec();
+  const idInToken = decoded.id;
+  const user = await User.findById(idInToken).exec();
   return user;
 }
