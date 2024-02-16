@@ -6,3 +6,12 @@ body {
   background: #06141d;
   color: white;
 }
+
+aside,
+main::-webkit-scrollbar {
+  display: none;
+}
+aside,
+#main {
+  scrollbar-width: none;
+}
