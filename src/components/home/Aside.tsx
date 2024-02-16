@@ -3,6 +3,7 @@ import GrayCard from "../GrayCard";
 import createIcon from "@/assets/pencil.svg";
 import ProfileCard from "./ProfileCard";
 import SuggestionCard from "./SuggestionCard";
+import Link from "next/link";
 
 function Aside({ user }: { user: any }) {
   return (
@@ -37,10 +38,13 @@ function Aside({ user }: { user: any }) {
         <SuggestionCard user={user} />
       </GrayCard>
 
-      <button className="flex gap-1 items-center mt-auto mb-2 bg-[#3cc2c9] self-center px-5 py-1.5 rounded-lg sticky bottom-2">
+      <Link
+        href="/createPost"
+        className="flex gap-1 items-center mt-auto mb-2 bg-[#3cc2c9] self-center px-5 py-1.5 rounded-lg sticky bottom-2"
+      >
         <Image src={createIcon} alt="Create post" width={20} height={20} />
         <span className="font-bold">Create</span>
-      </button>
+      </Link>
     </aside>
   );
 }
