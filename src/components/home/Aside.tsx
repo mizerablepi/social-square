@@ -1,11 +1,13 @@
 import Image from "next/image";
 import GrayCard from "../GrayCard";
+import createIcon from "@/assets/pencil.svg";
+import ProfileCard from "./ProfileCard";
+import SuggestionCard from "./SuggestionCard";
 
-function Aside({ profilePic }: { profilePic: string }) {
-  const image = profilePic;
+function Aside({ user }: { user: any }) {
   return (
-    <aside className="hidden sm:block">
-      <div className="flex-1 py-4 pl-4 flex flex-col gap-4">
+    <aside className="flex-1 flex-col hidden sm:flex gap-4 overflow-scroll h-screen pl-4 overflow-x-hidden">
+      <div className="pt-4 flex flex-col gap-4 ">
         <div className="flex gap-2 px-1">
           <Image
             src="/logo_black.png"
@@ -28,8 +30,17 @@ function Aside({ profilePic }: { profilePic: string }) {
             />
           </div>
         </div>
-        {/* <GrayCard>{image}</GrayCard> */}
       </div>
+      <ProfileCard user={user} />
+      <GrayCard classname="p-2">
+        <h4 className="font-bold mb-2">Suggested For You: </h4>
+        <SuggestionCard user={user} />
+      </GrayCard>
+
+      <button className="flex gap-1 items-center mt-auto mb-2 bg-[#3cc2c9] self-center px-5 py-1.5 rounded-lg sticky bottom-2">
+        <Image src={createIcon} alt="Create post" width={20} height={20} />
+        <span className="font-bold">Create</span>
+      </button>
     </aside>
   );
 }
