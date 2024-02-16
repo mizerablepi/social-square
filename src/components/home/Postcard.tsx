@@ -34,7 +34,7 @@ function PostCard({
             alt="pp"
             width={42}
             height={42}
-            className="w-[42px] h-[42px]"
+            className="w-[42px] h-[42px] rounded-full object-cover"
           />
         </div>
         <div>
