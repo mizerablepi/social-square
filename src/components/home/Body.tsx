@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import PostCard from "./Postcard";
+import Navbar from "../Navbar";
 
 function Body() {
   const [posts, setPosts] = useState([]);
@@ -11,11 +12,13 @@ function Body() {
       .then((res) => res.json())
       .then((data) => setPosts(data.posts));
   }, []);
-  // console.log(posts[0]._id);
   return (
-    <>
+    <div
+      className="flex-[2] flex flex-col h-screen  overflow-scroll overflow-x-hidden"
+      id="main"
+    >
       <main className="flex-1 p-2 flex flex-col gap-4">
-        <nav className="hidden sm:flex ">Navbar for laptops</nav>
+        <Navbar page="home" />
         {posts.length > 0 ? (
           posts.map(
             (post: {
@@ -39,7 +42,7 @@ function Body() {
       >
         +
       </Link>
-    </>
+    </div>
   );
 }
 
