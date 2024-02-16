@@ -10,12 +10,14 @@ function FollowButton({
   alreadyFollowing: boolean;
 }) {
   const [following, setFollowing] = useState(alreadyFollowing);
-  const clickHandler = () => {
+  const clickHandler = (e: any) => {
+    e.target.disabled = true;
     const data = new FormData();
     data.append("suggestedUserId", suggestedUserId);
-    fetch("/api/user/follow", { method: "post", body: data }).then(() =>
-      setFollowing(!following)
-    );
+    fetch("/api/user/follow", { method: "post", body: data }).then(() => {
+      setFollowing(!following);
+      e.target.disabled = false;
+    });
   };
   return (
     <button
