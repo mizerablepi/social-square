@@ -6,7 +6,7 @@ import chat from "@/assets/message.svg";
 
 function Navbar({ page }: { page: string }) {
   return (
-    <nav className="flex bg-gray-800 rounded-lg self-center sticky top-4 px-5 py-2 items-center gap-6">
+    <nav className="flex bg-gray-800 rounded-lg self-center sticky top-3 px-5 py-2 items-center gap-6">
       <div
         className={`active:bg-indigo-800 px-2 rounded transition flex items-center py-1.5 ${
           page == "home" ? "bg-blue-900" : ""

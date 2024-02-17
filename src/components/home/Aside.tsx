@@ -8,7 +8,7 @@ import Link from "next/link";
 function Aside({ user }: { user: any }) {
   return (
     <aside className="flex-1 flex-col hidden sm:flex gap-4 overflow-scroll h-screen pl-4 overflow-x-hidden">
-      <div className="pt-4 flex flex-col gap-4 ">
+      <div className="pt-4 mb-3 flex flex-col gap-4 ">
         <div className="flex gap-2 px-1">
           <Image
             src="/logo_black.png"

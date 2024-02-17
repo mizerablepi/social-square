@@ -1,10 +1,8 @@
-import Link from "next/link";
-import Image from "next/image";
-import getSuggestions from "@/helper/getSuggestions";
+import { getUserSuggestions } from "@/helper/getSuggestions";
 import SuggestionTile from "./SuggestionTile";
 
 async function SuggestionCard({ user }: { user: any }) {
-  const suggestedUsers = await getSuggestions(user.id);
+  const suggestedUsers = await getUserSuggestions(user.id);
   return (
     <div>
       {suggestedUsers.map((suggestedUser) => {

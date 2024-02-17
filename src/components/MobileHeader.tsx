@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import userIcon from "@/assets/account-circle-outline.svg";
 
-function MobileHeader({ profilePic }: { profilePic: string | undefined }) {
+function MobileHeader({ profilePic }: { profilePic?: string }) {
   return (
     <header className="sm:hidden p-3 bg-slate-900 flex z-10 sticky top-0 shadow-lg items-center gap-6">
       <Link href={"/profile"}>
