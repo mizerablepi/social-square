@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import PostCard from "./Postcard";
 import Navbar from "../Navbar";
+import { Oval } from "react-loader-spinner";
 
 function Body() {
   const [posts, setPosts] = useState([]);
@@ -33,7 +34,15 @@ function Body() {
             }) => <PostCard post={post} key={post._id} />
           )
         ) : (
-          <div className="text-white font-bold text-3xl">Loading...</div>
+          <div className="self-center my-auto">
+            <Oval
+              height="80"
+              width="80"
+              color="#53bfc5"
+              secondaryColor="53bfc5"
+              ariaLabel="oval-loading"
+            />
+          </div>
         )}
       </main>
       <Link
