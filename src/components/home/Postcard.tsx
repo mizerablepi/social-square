@@ -1,11 +1,13 @@
 import Image from "next/image";
 import GrayCard from "../GrayCard";
-import likeIcon from "@/assets/heart.svg";
 import commentIcon from "@/assets/comment-processing-outline.svg";
 import shareIcon from "@/assets/share.svg";
+import LikeButton from "./LikeButton";
+import Link from "next/link";
 
 function PostCard({
   post,
+  userId,
 }: {
   post: {
     author: any;
@@ -16,6 +18,7 @@ function PostCard({
     comments: any[];
     _id: string;
   };
+  userId: string;
 }) {
   let time;
   const postDate: any = new Date(post.publishedAt);
@@ -68,12 +71,13 @@ function PostCard({
             <span>Comments: {post.comments.length}</span>{" "}
           </div>
           <div className="flex gap-2">
-            <button className="bg-gray-700 rounded p-2 font-bold text-sm flex-[2] flex items-center justify-center gap-1 ">
-              <Image src={likeIcon} alt="" width={20} height={20} /> Like
-            </button>
-            <button className="bg-gray-700 rounded p-2 font-bold text-sm flex-[2] flex items-center justify-center gap-1">
+            <LikeButton postId={post._id} liked={post.likes.includes(userId)} />
+            <Link
+              href={`post/${post._id}/comment`}
+              className="bg-gray-700 rounded p-2 font-bold text-sm flex-[2] flex items-center justify-center gap-1"
+            >
               <Image src={commentIcon} alt="" width={20} height={20} /> Comment
-            </button>
+            </Link>
             <button className="bg-gray-700 rounded p-2 font-bold text-sm flex-1 flex items-center justify-center gap-1">
               <Image src={shareIcon} alt="" width={20} height={20} />{" "}
               <span className="sm:block hidden">Share</span>

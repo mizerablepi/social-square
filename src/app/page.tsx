@@ -9,7 +9,7 @@ export default async function Home() {
   return (
     <div className="flex gap-2 max-w-[90rem] mx-auto">
       <Aside user={user} />
-      <Body />
+      <Body userId={user.id} />
       <Extra userId={user.id} />
     </div>
   );

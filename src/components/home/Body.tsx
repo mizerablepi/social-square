@@ -6,7 +6,7 @@ import PostCard from "./Postcard";
 import Navbar from "../Navbar";
 import { Oval } from "react-loader-spinner";
 
-function Body() {
+function Body({ userId }: { userId: string }) {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
     fetch("/api/post")
@@ -31,7 +31,8 @@ function Body() {
               publishedAt: Date;
               comments: any[];
               _id: string;
-            }) => <PostCard post={post} key={post._id} />
+              id: string;
+            }) => <PostCard post={post} key={post._id} userId={userId} />
           )
         ) : (
           <div className="self-center my-auto">
