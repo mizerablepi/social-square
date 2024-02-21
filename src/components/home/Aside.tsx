@@ -37,9 +37,9 @@ function Aside({ user }: { user: any }) {
         <h4 className="font-bold mb-2">Suggested For You: </h4>
         <SuggestionCard user={user} />
       </GrayCard>
-
+      <br />
       <Link
-        href="/createPost"
+        href="/post/create"
         className="flex gap-1 items-center mt-auto mb-2 bg-[#3cc2c9] self-center px-5 py-1.5 rounded-lg sticky bottom-2"
       >
         <Image src={createIcon} alt="Create post" width={20} height={20} />
