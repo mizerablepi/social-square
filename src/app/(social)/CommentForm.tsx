@@ -1,5 +1,5 @@
 import { useState } from "react";
-import GrayCard from "../GrayCard";
+import GrayCard from "../../components/GrayCard";
 
 function CommentForm({ postId }: { postId: string }) {
   const [pending, setPending] = useState(false);

@@ -1,4 +1,4 @@
-import GrayCard from "../GrayCard";
+import GrayCard from "../../components/GrayCard";
 import Link from "next/link";
 import Image from "next/image";
 

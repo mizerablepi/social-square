@@ -1,5 +1,5 @@
 import Image from "next/image";
-import GrayCard from "../GrayCard";
+import GrayCard from "../../components/GrayCard";
 import createIcon from "@/assets/pencil.svg";
 import ProfileCard from "./ProfileCard";
 import SuggestionCard from "./SuggestionCard";

@@ -1,4 +1,4 @@
-import GrayCard from "../GrayCard";
+import GrayCard from "../../components/GrayCard";
 import { getPostSuggestion } from "@/helper/getSuggestions";
 
 async function Extra({ userId }: { userId: string }) {

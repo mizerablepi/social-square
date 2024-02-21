@@ -1,6 +1,6 @@
-import Aside from "@/components/home/Aside";
-import Body from "@/components/home/Body";
-import Extra from "@/components/home/Extra";
+import Aside from "@/app/(social)/Aside";
+import Body from "@/app/(social)/Body";
+import Extra from "@/app/(social)/Extra";
 import getUser from "@/helper/getUser";
 
 async function SocialLayout({ children }: any) {

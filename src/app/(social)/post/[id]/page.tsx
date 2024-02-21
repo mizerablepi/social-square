@@ -2,9 +2,10 @@
 
 import GrayCard from "@/components/GrayCard";
 import Navbar from "@/components/Navbar";
-import CommentForm from "@/components/home/CommentForm";
+import CommentForm from "@/app/(social)/CommentForm";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import CommentSection from "./CommentSection";
 
 function Post({ params }: { params: { id: string } }) {
   const [post, setPost]: [any, any] = useState();
@@ -17,7 +18,7 @@ function Post({ params }: { params: { id: string } }) {
   useEffect(() => {
     if (post) {
       if (window.location.hash.substring(1) == "comments") {
-        commentsDiv.current!.scrollIntoView();
+        commentsDiv.current!.scrollIntoView({ behavior: "smooth" });
       }
     }
   }, [post]);
@@ -62,12 +63,7 @@ function Post({ params }: { params: { id: string } }) {
             </div>
           </GrayCard>
           <div id="comments" ref={commentsDiv} className="h-[79vh]">
-            <h2 className="font-semibold text-xl">Comments: </h2>
-            <hr className="mt-4 mb-2 border-slate-600" />
-
-            {post.comments.map((comment: any) => {
-              return <div key={comment._id}>{comment.text}</div>;
-            })}
+            <CommentSection post={post} />
           </div>
         </>
       ) : (

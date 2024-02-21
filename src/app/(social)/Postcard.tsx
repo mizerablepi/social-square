@@ -1,5 +1,5 @@
 import Image from "next/image";
-import GrayCard from "../GrayCard";
+import GrayCard from "../../components/GrayCard";
 import commentIcon from "@/assets/comment-processing-outline.svg";
 import shareIcon from "@/assets/share.svg";
 import LikeButton from "./LikeButton";
@@ -73,7 +73,7 @@ function PostCard({
           <div className="flex gap-2">
             <LikeButton postId={post._id} liked={post.likes.includes(userId)} />
             <Link
-              href={`post/${post._id}/comment`}
+              href={`post/${post._id}#comments`}
               className="bg-gray-700 rounded p-2 font-bold text-sm flex-[2] flex items-center justify-center gap-1"
             >
               <Image src={commentIcon} alt="" width={20} height={20} /> Comment

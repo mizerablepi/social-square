@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import PostCard from "./Postcard";
-import Navbar from "../Navbar";
+import Navbar from "../../components/Navbar";
 import { Oval } from "react-loader-spinner";
 import jwt from "jsonwebtoken";
 
