@@ -6,7 +6,6 @@ import Post from "@/models/Post";
 
 export async function POST(req: Request) {
   connect();
-
   const token = cookies().get("token");
   if (!token) {
     cookies().set("errors", "Not signed in");
@@ -22,10 +21,12 @@ export async function POST(req: Request) {
   try {
     const post = await Post.findById(data.get("postId")).exec();
     const index = post.likes.indexOf(decodedToken.id);
+    console.log(decodedToken.id);
     if (index > -1) {
-      post.likes.push(decodedToken.id);
-    } else {
       post.likes.splice(index, 1);
+    } else {
+      post.likes.push(decodedToken.id);
+      console.log(post.likes);
     }
     await post.save();
     return NextResponse.json({ success: true });
