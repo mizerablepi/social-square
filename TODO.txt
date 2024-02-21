@@ -1,0 +1,6 @@
+comments sort
+hashtags
+search
+chat
+share button
+profile page
