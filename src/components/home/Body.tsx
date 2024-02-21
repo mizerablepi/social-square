@@ -5,19 +5,28 @@ import { useEffect, useState } from "react";
 import PostCard from "./Postcard";
 import Navbar from "../Navbar";
 import { Oval } from "react-loader-spinner";
+import jwt from "jsonwebtoken";
 
-function Body({ userId }: { userId: string }) {
+function Body() {
   const [posts, setPosts] = useState([]);
+  const [userId, setUserId] = useState("");
   useEffect(() => {
     fetch("/api/post")
       .then((res) => res.json())
-      .then((data) => setPosts(data.posts));
+      .then((data) => {
+        const JWT = document.cookie.split("=")[1];
+        const decodedJWT = jwt.decode(JWT)! as {
+          username: string;
+          id: string;
+          iat: number;
+        };
+        setUserId(decodedJWT.id);
+        setPosts(data.posts);
+      });
   }, []);
+
   return (
-    <div
-      className="flex-[2] flex flex-col h-screen  overflow-scroll overflow-x-hidden"
-      id="main"
-    >
+    <>
       <main className="flex-1 p-2 flex flex-col gap-4">
         <Navbar page="home" />
         {posts.length > 0 ? (
@@ -47,12 +56,12 @@ function Body({ userId }: { userId: string }) {
         )}
       </main>
       <Link
-        href="/createPost"
+        href="/post/create"
         className="font-bold text-2xl bg-[#53bfc5] px-5 py-3 sticky bottom-16 self-end rounded-full mr-3 sm:hidden"
       >
         +
       </Link>
-    </div>
+    </>
   );
 }
 
