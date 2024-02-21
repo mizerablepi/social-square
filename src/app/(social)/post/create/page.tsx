@@ -11,12 +11,12 @@ function PostForm() {
   const [pending, setPending] = useState(false);
   const [errors, setErrors] = useState();
   return (
-    <div className="flex flex-col items-center min-h-[calc(100vh-116px)] md:min-h-screen pt-8">
+    <div className="flex flex-col min-h-[calc(100vh-116px)] md:min-h-screen pt-6">
       <div>
         <div>
-          <h1 className="font-bold text-4xl pb-8 pl-2 sm:pl-0">Create Post:</h1>
+          <h1 className="font-bold text-4xl pb-4 pl-2 sm:pl-0">Create Post:</h1>
         </div>
-        <div className="bg-gray-800 rounded-md w-screen sm:w-[25rem] p-6">
+        <div className="bg-gray-800 rounded-md w-screen sm:w-full p-6">
           <form
             // action="/api"
             method="post"
