@@ -15,7 +15,7 @@ export async function POST(req: Request) {
     return NextResponse.json({
       msg: "wtf dude?!",
       success: false,
-      url: "/createPost",
+      url: "/post/create",
     });
   }
   const decodedToken: any = jwt.decode(token.value);
@@ -27,7 +27,7 @@ export async function POST(req: Request) {
     return NextResponse.json({
       msg: "Text field is required",
       success: false,
-      url: "/createPost",
+      url: "/post/create",
     });
   }
 
@@ -69,7 +69,7 @@ export async function POST(req: Request) {
     return NextResponse.json({
       msg: "Server Error try again later",
       success: false,
-      url: "/createPost",
+      url: "/post/create",
     });
   }
 }
@@ -82,7 +82,7 @@ export async function GET(req: Request) {
     return NextResponse.json({
       msg: "wtf dude?! just use the damn website",
       success: false,
-      url: "/createPost",
+      url: "/post/create",
     });
   }
 
