@@ -1,6 +1,5 @@
-comments sort
 hashtags
 search
+profile page
 chat
 share button
-profile page
