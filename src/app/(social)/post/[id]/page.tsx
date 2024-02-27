@@ -2,10 +2,11 @@
 
 import GrayCard from "@/components/GrayCard";
 import Navbar from "@/components/Navbar";
-import CommentForm from "@/app/(social)/CommentForm";
+import CommentForm from "@/app/(social)/post/[id]/CommentForm";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import CommentSection from "./CommentSection";
+import { Oval } from "react-loader-spinner";
 
 function Post({ params }: { params: { id: string } }) {
   const [post, setPost]: [any, any] = useState();
@@ -62,13 +63,21 @@ function Post({ params }: { params: { id: string } }) {
               )}
             </div>
           </GrayCard>
-          <div id="comments" ref={commentsDiv} className="h-[79vh]">
-            <CommentSection post={post} />
-          </div>
         </>
       ) : (
-        "LOADING"
+        <div className="flex justify-center my-2">
+          <Oval
+            height="80"
+            width="80"
+            color="#53bfc5"
+            secondaryColor="53bfc5"
+            ariaLabel="oval-loading"
+          />
+        </div>
       )}
+      <div id="comments" ref={commentsDiv} className="h-[79vh]">
+        <CommentSection postId={params.id} />
+      </div>
       <CommentForm postId={params.id} />
     </main>
   );
