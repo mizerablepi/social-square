@@ -1,5 +1,5 @@
-import ShopAside from "@/components/shop/Aside";
-import ShopBody from "@/components/shop/Body";
+import ShopAside from "./Aside";
+import ShopBody from "./Body";
 import getUser from "@/helper/getUser";
 import MobileHeader from "@/components/MobileHeader";
 import MobileNavbar from "@/components/MobileNavbar";
