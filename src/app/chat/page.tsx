@@ -1,6 +1,6 @@
 import getUser from "@/helper/getUser";
-import ChatBody from "@/components/chat/Body";
-import ChatAside from "@/components/chat/Aside";
+import ChatBody from "./Body";
+import ChatAside from "./Aside";
 import MobileHeader from "@/components/MobileHeader";
 import MobileNavbar from "@/components/MobileNavbar";
 
